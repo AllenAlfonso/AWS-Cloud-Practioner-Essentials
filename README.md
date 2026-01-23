@@ -109,21 +109,3 @@ AWS Xray - Simi to EUCT but a tool | Scenario is Excel with macro files experien
 AWS AppSync - Simi to Montly Top Performers - The creteria is 1. Total Ticket From Marval - Total Number of Call from Genesys APPSync  combining multiple DATA from different Application into One GraphQL API so Developers can Filter the Data or query the ranking of Top performers. It means insted of having 2 API to get the DATA from Marval API and GENESYS API AppSync replaces multiple APIs with one GraphQL API.
 
 
-AWS Amplify
-
-Amazon Connect vs Genesys Cloud
-| Feature             | **Amazon Connect**                                       | **Genesys Cloud**                                                     |
-| ------------------- | -------------------------------------------------------- | --------------------------------------------------------------------- |
-| **Type**            | Fully managed **AWS cloud contact center**               | Fully managed **Genesys cloud contact center**                        |
-| **Setup**           | Quick setup via AWS, no servers                          | Subscription-based, quick cloud setup                                 |
-| **Integration**     | Native AWS integration (Lambda, S3, Lex, Polly, AppSync) | Integrates with many CRMs, APIs, and third-party services             |
-| **AI / Automation** | Optional AWS AI (Lex for chatbots, Polly for voice)      | Built-in AI features or integrations (chatbots, workforce management) |
-| **Customization**   | Flexible if you’re already in AWS ecosystem              | Flexible but mainly inside Genesys ecosystem                          |
-| **Cost**            | Pay-as-you-go (per minute/call, per user optional)       | Subscription-based (per user/month)                                   |
-
-
-Genesys Cloud: Like a ready-made, subscription-based office phone system in the cloud. You log in, set up agents, and it works.
-
-Amazon Connect: Like Genesys Cloud but built on AWS, with extra flexibility: you can hook into other AWS services, add AI chatbots, or automate things with Lambda.
-
-Amazon Connect and Genesys Cloud are both cloud contact center solutions, but Amazon Connect is AWS-native and integrates deeply with AWS services, while Genesys Cloud is vendor-managed and more standalone.
