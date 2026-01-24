@@ -108,4 +108,115 @@ AWS Xray - Simi to EUCT but a tool | Scenario is Excel with macro files experien
 
 AWS AppSync - Simi to Montly Top Performers - The creteria is 1. Total Ticket From Marval - Total Number of Call from Genesys APPSync  combining multiple DATA from different Application into One GraphQL API so Developers can Filter the Data or query the ranking of Top performers. It means insted of having 2 API to get the DATA from Marval API and GENESYS API AppSync replaces multiple APIs with one GraphQL API.
 
+AWS Amplify - All in one Tool that help to create an APP and AWS AMplify will automatically code and connects the configurations of each like Front end Backend to Database. Simi to Creating an Character in a game You will choose your characters Apperance ( Front End) Character behavior ( Back end ) Knowledge or brain ( Database) you will just choose and AWS Amplify will handle the codes and configuration and Hosting.
+
+Amplify Studio is a builder where you can design your app’s data, UI, and login using drag-and-drop instead of writing code.
+
+Example of Steps on creating an APP
+
+---
+
+# 🧩 AWS Amplify Studio – No-Code UI (Visual Walkthrough)
+
+## Example: **Employee CRUD App (No Coding)**
+
+
+
+---
+
+## 🔹 Step 1: Create an Amplify App
+
+1. Go to **AWS Console**
+2. Open **AWS Amplify**
+3. Click **“New App” → “Build an App”**
+4. Choose **Web App**
+5. Connect GitHub (or skip for now)
+
+👉 This creates your Amplify project.
+
+---
+
+## 🔹 Step 2: Open Amplify Studio
+
+* Inside your Amplify app
+* Click **“Launch Studio”**
+
+👉 You now see a **visual design screen**, not code.
+
+---
+
+## 🔹 Step 3: Create Data Model (No Code)
+
+1. Go to **Data → Models**
+2. Click **Create Model**
+3. Example:
+
+| Field      | Type   |
+| ---------- | ------ |
+| name       | String |
+| department | String |
+| role       | String |
+
+Click **Save and Deploy**
+
+👉 Amplify automatically creates:
+
+* Database
+* CRUD APIs
+
+**No SQL. No server setup.**
+
+---
+
+## 🔹 Step 4: Enable Authentication (1 Click)
+
+1. Go to **Authentication**
+2. Enable **Username / Email login**
+3. Save
+
+👉 Login & signup pages are auto-generated.
+
+---
+
+## 🔹 Step 5: Build UI with Drag & Drop
+
+1. Go to **UI Library**
+2. Click **Create Form**
+3. Choose **Employee model**
+4. Select **Create / Update Form**
+5. Click **Save**
+
+Amplify auto-creates:
+
+* Input forms
+* Tables
+* Buttons
+
+👉 Like dragging controls in **WinForms / Power Apps**.
+
+---
+
+## 🔹 Step 6: Preview the App
+
+* Click **Preview**
+* You see:
+
+  * Login page
+  * Employee form
+  * Employee list
+
+👉 Fully working CRUD app.
+
+---
+
+## 🔹 Step 7: Sync to Code (Optional)
+
+* Amplify generates **React code automatically**
+* Developers can customize later
+
+👉 No-code → low-code → full-code path.
+
+---
+
+
 
