@@ -4,6 +4,8 @@ AWS Cloud Practioner Essentials
 
 Module 12: Migrating to the AWS Cloud
 
+---
+
 Migration Phase
 
 Assess Phase > Mobilize Phase > Migrate and Modernize
@@ -19,6 +21,8 @@ AWS Migration Hub - Central dashboard Visibility and tracking the status is whic
 Migrate and Modernize Phase - (Goal is to move workloads to AWS and improve applications)
 AWS Application Migration Service - Migrates applications from on-premises or cloud environments to AWS. Also you can improve your application ex your application database is always going high utilization due to many workloads and using a mysql database you can modernize change to RDS and add a Read Replica to lessen Main/Primary RDS DB utilization.
 
+
+---
 AWS CAF - Plan, Migrate, and Optimize - Help Organization why and how move to AWS Cloud
 
 Business Capabilities
@@ -33,6 +37,8 @@ Platform
 Security
 Operations
 
+---
+
 Well-Architected Framework ( WAF) - Help design secure, reliable,high-performing, cost-efficient workloads. (QUALITY)
 
 Operational Excellence
@@ -42,6 +48,8 @@ Perfomance Efficiency
 Cost Optimization
 Sustainability
 
+
+---
 CAF: Used before migration (planning & readiness)
 
 Well-Architected: Used during/after build
@@ -56,6 +64,7 @@ If the question mentions people, policies, governance = CAF
 
 If it mentions architecture, performance, reliability = Well-Architected
 
+---
 The 7's R
 
 Rehost - Lift and Shift - Move as is (onprem Servers to VMs ) Might due to more scalability elasticity.
@@ -71,7 +80,9 @@ Repurchase - Drop and Shop - Considering better offers benefits.
 Retain - Stays where it lays
 
 Retire - No longer being used
+---
 
+---
 Database Migration
 
 AWS Database Migration Service (DMS) - Migrate/move or replicate Onprem to AWS or AZURE/GCP to AWS with minimal downtime.
@@ -79,16 +90,21 @@ AWS Database Migration Service (DMS) - Migrate/move or replicate Onprem to AWS o
 AWS Schema Conversion Tool - Convert/transform database schemas and application/database code from one database engine to another (ex, MySQL to Amazon RDS, Oracle DB to Aurora).
 
 Transferring Data Online
+---
 
 AWS DataSync - is Simi to OneDrive you can Move or SYNC From onprem to Cloud. also you can sched when the sync or move will be done.
+---
 
 AWS Transfer Family - Simi to Shared Drive = EFS using a Protocol FTP Port 21
+---
 
 Direct Connect - Move files from on prem to Cloud without using the internet/WIFI because Direct connect is like a lan cable connecting Onprem to Cloud. Instead of upload to cloud it just Moving Files from onprem to cloud.
-
+---
 Transferring Data Offline 
 
+---
 Snowballs - Simi to Portable HDD/SSD send a hardware copy to onprem then deliver the Portable Storage to Cloud and paste.
+---
 
 Module 13 - Well Architected Solutions
 
