@@ -277,3 +277,11 @@ AWS Well-Architected Tool
 | **Sustainability**         | Reduce energy and resource waste                  | Like **Shutting down PCs after work hours to save electricity** | Use smaller instance sizes; consolidate workloads to fewer servers                    |
 
 
+---
+
+AWS Well-Architected Tool - Give you enchament or suggestion to improve base in the six pillars. Simi to my thinking always have an idea to automate things for the better and convenient.
+
+---
+
+
+
