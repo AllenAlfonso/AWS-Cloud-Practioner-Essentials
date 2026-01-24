@@ -83,7 +83,7 @@ Retire - No longer being used
 
 
 ---
-Database Migration
+**Database Migration
 
 AWS Database Migration Service (DMS) - Migrate/move or replicate Onprem to AWS or AZURE/GCP to AWS with minimal downtime.
 
@@ -101,7 +101,7 @@ Transferring Data Offline
 ---
 Snowballs - Simi to Portable HDD/SSD send a hardware copy to onprem then deliver the Portable Storage to Cloud and paste.
 ---
-Module 13 - Well Architected Solutions
+Module 13 - Well Architected Solutions**
 
 ---
 
