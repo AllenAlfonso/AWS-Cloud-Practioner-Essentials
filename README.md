@@ -83,7 +83,7 @@ Retire - No longer being used
 
 
 ---
-**Database Migration
+Database Migration
 
 AWS Database Migration Service (DMS) - Migrate/move or replicate Onprem to AWS or AZURE/GCP to AWS with minimal downtime.
 
@@ -101,6 +101,7 @@ Transferring Data Offline
 ---
 Snowballs - Simi to Portable HDD/SSD send a hardware copy to onprem then deliver the Portable Storage to Cloud and paste.
 ---
+
 Module 13 - Well Architected Solutions**
 
 ---
@@ -236,6 +237,13 @@ Amplify auto-creates:
 * Developers can customize later
 
 👉 No-code → low-code → full-code path.
+
+---
+
+Amazon Connect – Cloud-based contact center service Simi to  Genesys Cloud that handles inbound and outbound calls, , call queues, and agent routing using AWS (no on-prem servers). But more versatile because you can ADD an AI like Amazon Lex you will interact with AI  and Polly to convert text to Speech .
+
+---
+Amazon Simple Email Service (Amazon SES) – Cloud-based service to send and receive emails securely, reliably, and at scale without managing mail servers. Simi to Outlook + Exchange but your own manage you can set an firewall what will gonna block example Spam and phising mails. Outlook Part (Email Client) Exchange Part (Email Server / Backend)
 
 ---
 
