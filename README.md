@@ -106,11 +106,11 @@ Module 13 - Well Architected Solutions**
 
 ---
 
-AWS CodeBuild - Simi to Visual Studio Code | CodeBuild = cloud compiler + test runner, like NetBeans or Visual Studio, but fully automated and scalable.
+AWS CodeBuild - This where you type codes and test if their an error to be able to package your code to test and when passed it will be deployment ready. Simi to Github/ Visual Studio Code | CodeBuild = cloud compiler + test runner, like NetBeans or Visual Studio, but fully automated and scalable.
 
 ---
 
-AWS CodePipeline - Simi to Weekly Downtime summary Excel
+AWS CodePipeline - Used for CI/CD. Continious Integration Continious Deployment. Simi to Weekly Downtime summary Excel See below Stages for example.
 
 Source Stage: Developer pushes the updated Excel file with Macros or Formula to Sharepoint
 
@@ -122,11 +122,11 @@ Deploy Stage (CodeDeploy or S3): If the data in the excel file works without err
 
 ---
 
-AWS Xray - Simi to EUCT but a tool | Scenario is Excel with macro files experiencing Not responsing state. Using AWS xray it can trace or identify the problem and help to troubleshoot the issue. The issue is having a bottleneck in RAM have a high CPU but 4 gb of ram that cannot handle big excel file with Macros AWS xray Helps decide solutions Ex. Increase RAM,Optimize macro code,Split large Excel files.
+AWS Xray - Debuging Tool to know where the error located and giving solutions bestie of a developer. Simi to EUCT but a tool | Scenario is Excel with macro files experiencing Not responsing state. Using AWS xray it can trace or identify the problem and help to troubleshoot the issue. The issue is having a bottleneck in RAM have a high CPU but 4 gb of ram that cannot handle big excel file with Macros AWS xray Helps decide solutions Ex. Increase RAM,Optimize macro code,Split large Excel files.
 
 ---
 
-AWS AppSync - Simi to Montly Top Performers - The creteria is 1. Total Ticket From Marval - Total Number of Call from Genesys APPSync  combining multiple DATA from different Application into One GraphQL API so Developers can Filter the Data or query the ranking of Top performers. It means insted of having 2 API to get the DATA from Marval API and GENESYS API AppSync replaces multiple APIs with one GraphQL API.
+AWS AppSync - Combine/connects multiple data to a single GraphQL API. Simi to Montly Top Performers - The creteria is 1. Total Ticket From Marval - Total Number of Call from Genesys APPSync  combining multiple DATA from different Application into One GraphQL API so Developers can Filter the Data or query the ranking of Top performers. It means insted of having 2 API to get the DATA from Marval API and GENESYS API AppSync replaces multiple APIs with one GraphQL API.
 
 ---
 
