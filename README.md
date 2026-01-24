@@ -247,5 +247,18 @@ Amazon Simple Email Service (Amazon SES) – Cloud-based service to send and rec
 
 ---
 
+Amazon AppStream 2.0 - Simi to remote desktop but browser based (no need to install app like quickassist) and only for a Single APP example only Gooogle chrome you can just remote the chrome it self you cannot click outside chrome.
+
+---
+
+WorkSpaces - Simi to Remote Desktop you can access all the remote desktop features. same na same and need to install the app 
+
+---
+
+Amazon WorkSpaces Secure Browser - Simi to PSHR that is internaly hosted local network like you can access only infront of HR or other whitelisted IPs.
+
+
+---
+
 
 
