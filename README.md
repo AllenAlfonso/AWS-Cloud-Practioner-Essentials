@@ -255,10 +255,25 @@ WorkSpaces - Simi to Remote Desktop you can access all the remote desktop featur
 
 ---
 
-Amazon WorkSpaces Secure Browser - Simi to PSHR that is internaly hosted local network like you can access only infront of HR or other whitelisted IPs.
+Amazon WorkSpaces Secure Browser - Simi to PSHR that is internaly hosted local network like you can access only infront of HR or other whitelisted IPs. Highly isolated, secure browser session
 
 
 ---
 
+
+AWS IOT Core - Managed cloud service that securely connects, manages, and collects data from Internet of Things (IoT) devices, allowing apps to interact with devices in real time. Simi to Skydatacenter Temperature monitoring it collect room temp Data and display to monitoring in real time. 
+
+---
+
+AWS Well-Architected Tool 
+
+| Pillar                     | Meaning                                           | SIMI                                                            | Easy Example                                                                          |
+| -------------------------- | ------------------------------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| **Operational Excellence** | Make sure your app runs smoothly and is monitored | Like **Event Viewer + Task Scheduler** checking logs & tasks    | EC2 server auto-patches and backups run on time; alerts if something fails            |
+| **Security**               | Keep data and apps safe                           | Like **Group Policy + Windows Defender + BitLocker**            | Only authorized users can access S3 files; MFA required; data encrypted               |
+| **Reliability**            | Keep apps available even if something breaks      | Like **RAID + Shadow Copies + UPS backup**                      | RDS Multi-AZ ensures DB fails over automatically; EC2 auto-recovers if server crashes |
+| **Performance Efficiency** | Use computing resources smartly                   | Like **Task Manager & Resource Monitor checking CPU/RAM**       | Auto-scale EC2 servers when web traffic spikes; use CloudFront caching                |
+| **Cost Optimization**      | Avoid wasting money                               | Like **Turning off idle VMs or uninstalling unused software**   | Stop unused EC2 instances; delete old snapshots; use cheaper spot instances           |
+| **Sustainability**         | Reduce energy and resource waste                  | Like **Shutting down PCs after work hours to save electricity** | Use smaller instance sizes; consolidate workloads to fewer servers                    |
 
 
