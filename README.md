@@ -3,7 +3,6 @@ AWS Cloud Practioner Essentials
 # Module 10 - Monitoring, Compliance and Governance in the AWS Cloud
 
 ---
-Amazon CloudWatch
 
 Amazon CloudWatch – Simi to Windows Task Manager + Event Viewer + Performance Monitor, but for AWS. It watches your AWS servers, apps, and services in real time Shows CPU, memory, disk,network usage, and app health Helps IT quickly see if something is slow, down, or overloaded
 
