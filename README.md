@@ -102,7 +102,11 @@ Transferring Data Offline
 Snowballs - Simi to Portable HDD/SSD send a hardware copy to onprem then deliver the Portable Storage to Cloud and paste.
 ---
 
-Module 13 - Well Architected Solutions**
+
+
+**Module 13 - Well Architected Solutions**
+
+
 
 ---
 
