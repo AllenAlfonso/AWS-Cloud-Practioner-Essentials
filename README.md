@@ -1,6 +1,110 @@
 AWS Cloud Practioner Essentials
 ---
+# Module 10 - Monitoring, Compliance and Governance in the AWS Cloud
 
+---
+Amazon CloudWatch
+
+Amazon CloudWatch – Simi to Windows Task Manager + Event Viewer + Performance Monitor, but for AWS.
+
+It watches your AWS servers, apps, and services in real time
+
+Shows CPU, memory, disk, network usage, and app health
+
+Helps IT quickly see if something is slow, down, or overloaded
+
+CloudWatch is not just monitoring
+It also includes:
+
+Metrics – like performance counters (CPU, RAM, disk)
+
+Logs – like Event Viewer logs from servers and apps
+
+Alarms – alerts when something exceeds a limit (ex: high CPU)
+
+Dashboards – one screen view of system health
+
+---
+
+
+AWS CloudTrail
+
+AWS CloudTrail – Simi to an Audit Log that records who did what and when in AWS.
+
+Tracks all user actions and API calls
+
+Shows who made the change, what was changed, and when it happened
+
+Helps  investigate issues, misconfigurations, or security incidents
+
+Example:
+
+Someone deletes an EC2 instance CloudTrail shows the username, time, IP address, and action taken
+
+---
+
+AWS Config
+
+AWS Config is a service that you can use to assess, audit, and evaluate the configurations of your AWS resources.
+
+Records configuration changes (before and after)
+
+Helps check compliance with security and best practices
+
+Useful for audits and troubleshooting misconfigurations
+
+If misconfigurations or for example it set to public and the AWS detect that the file is containing Personal impormation it will flag as NON COMPLIANT since its should be not to set to public.
+
+Example:
+
+Someone opens an S3 bucket to public and the AWS Config detect that the file is containing Personal impormation it will flag as NON COMPLIANT since its should be not to set to public.
+
+---
+
+AWS Audit Manager – Simi to audit tool that tracks user actions (like password resets), collects logs, and helps with compliance and security checks.
+
+---
+
+AWS Organizations – Central AWS account management with SCPs for security, consolidated billing for easier cost tracking, and shared Reserved Instance discounts to save money.
+
+Central account management: Organize accounts by department, project, or environment (Finance, HR, IT or Prod , Test environment)
+
+SCPs take priority. Even if an IAM user has full permissions, if the SCP denies an action, it will not work.
+
+Automated account creation: Quickly create new accounts with pre-configured policies
+
+Consolidated Billing: Combine billing for all linked accounts into one invoice
+
+Track spending per account or OU
+
+Simplifies budgeting and cost management
+
+Reserved Instance (RI) Discounts:
+
+RIs purchased in one account can be shared across other accounts in the Organization
+
+Helps maximize discounts and reduce overall AWS costs
+
+
+SCP is Simi Group Policy in Active Directory
+
+IAM permissions = the local user rights on a PC even if a local user is EUCT and have full access, Group Policy can block certain actions like resseting an AD account because ITSD only have the rights enable in Group Policy.
+
+---
+
+AWS Service Catalog – Pre-approved AWS resources organized in a catalog for teams to deploy securely and consistently. Simi to IT P1 and P2 or Monthly Server restart Templates. 
+
+---
+
+AWS License Manager – Tool to track, manage, and optimize software licenses, simi to Microsoft 365 license when we check if there an E5 license for them to access Office365.
+
+---
+AWS Trusted Advisor - Simi to asking me or manager Helps identify issues and improvement opportunities in optimize cost, efficiency, security, improve performance, and track service limits.
+
+---
+IAM Access Analyzer - Simi to IAA yearly Access review they will see when user not accesing the accounts or an access in a specific Application and they will also see if a user have a certain access that suppose to not have.
+
+---
 # Module 11 - Pricing and Support
 
 Cost Factors 
@@ -57,6 +161,34 @@ Cost Explorer = After build (analyze spending)
 Budgets = While running (alerts & control)
 
 ---
+
+AWS Marketplace
+
+AWS Marketplace – Simi to an App Store or Microsoft Store for AWS, where you can find, test, and buy ready-made software from third-party vendors that runs directly on AWS.
+
+You can see pricing options, license models, and customer reviews
+
+Software is pre-configured to run on AWS (no manual install)
+
+Billing is added directly to your AWS account
+
+Use cases:
+
+Quickly deploy tools like firewalls, monitoring tools, or databases
+
+Try software before buying without long setup
+
+Reduce time installing and configuring third-party software
+
+---
+
+AWS Partner Network – Network of AWS-certified partners that help businesses build, migrate, and improve solutions on AWS.
+
+---
+
+
+
+
 
 
 # Module 12 - Migrating to the AWS Cloud
