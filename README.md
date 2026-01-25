@@ -5,13 +5,7 @@ AWS Cloud Practioner Essentials
 ---
 Amazon CloudWatch
 
-Amazon CloudWatch – Simi to Windows Task Manager + Event Viewer + Performance Monitor, but for AWS.
-
-It watches your AWS servers, apps, and services in real time
-
-Shows CPU, memory, disk, network usage, and app health
-
-Helps IT quickly see if something is slow, down, or overloaded
+Amazon CloudWatch – Simi to Windows Task Manager + Event Viewer + Performance Monitor, but for AWS. It watches your AWS servers, apps, and services in real time Shows CPU, memory, disk,network usage, and app health Helps IT quickly see if something is slow, down, or overloaded
 
 CloudWatch is not just monitoring
 It also includes:
@@ -27,15 +21,7 @@ Dashboards – one screen view of system health
 ---
 
 
-AWS CloudTrail
-
-AWS CloudTrail – Simi to an Audit Log that records who did what and when in AWS.
-
-Tracks all user actions and API calls
-
-Shows who made the change, what was changed, and when it happened
-
-Helps  investigate issues, misconfigurations, or security incidents
+AWS CloudTrail - Simi to an Audit Log that records who did what and when in AWS. Tracks all user actions and API calls Shows who made the change, what was changed, and when it happened Helps investigate issues, misconfigurations, or security incidents
 
 Example:
 
@@ -43,17 +29,7 @@ Someone deletes an EC2 instance CloudTrail shows the username, time, IP address,
 
 ---
 
-AWS Config
-
-AWS Config is a service that you can use to assess, audit, and evaluate the configurations of your AWS resources.
-
-Records configuration changes (before and after)
-
-Helps check compliance with security and best practices
-
-Useful for audits and troubleshooting misconfigurations
-
-If misconfigurations or for example it set to public and the AWS detect that the file is containing Personal impormation it will flag as NON COMPLIANT since its should be not to set to public.
+AWS Config is a service that you can use to assess, audit, and evaluate the configurations of your AWS resources.Records configuration changes (before and after) Helps check compliance with security and best practices Useful for audits and troubleshooting misconfigurations. If misconfigurations or for example it set to public and the AWS detect that the file is containing Personal impormation it will flag as NON COMPLIANT since its should be not to set to public.
 
 Example:
 
