@@ -96,6 +96,7 @@ Data Encryption -Remember the example of briefcase with key that is being delive
 At Rest = Locking data in a safe (disk/database/encrypted storage)
 
 In Transit = Sending data through a secure tunnel (HTTPS/VPN)
+
 --- 
 
 Amazon Macie – Automated tool that discovers, classifies, and protects sensitive data in AWS, helping prevent accidental exposure. Simi to Outlook rules that if have an Personal Inforamtion and it has been sent to external emails it will be automatically not delivered.
