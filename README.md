@@ -1,12 +1,69 @@
-# AWS-Cloud-Practioner-Essentials
 AWS Cloud Practioner Essentials
+---
 
+# Module 11 - Pricing and Support
 
-Module 12: Migrating to the AWS Cloud
+Cost Factors 
+
+Compute
+Storage
+Data Transfer
 
 ---
 
-Migration Phase
+AWS Budgets
+
+AWS Budgets – Simi to setting a monthly expense limit in Excel or Outlook alerts. You set a budget for AWS costs, and AWS will notify you if your spending, usage, or RI/Savings Plans utilization goes over the limit.
+
+Use cases:
+
+Get alerts when projected AWS costs exceed your defined budget
+
+Monitor and control cloud spending before it becomes too expensive
+
+---
+
+AWS Cost Explorer
+
+AWS Cost Explorer – Simi to a financial dashboard or pivot chart in Excel that shows where your AWS money is going using graphs and reports. It helps analyze usage trends and find cost-saving opportunities.
+
+Use cases:
+
+Review past AWS spending to see which services cost the most
+
+Forecast future AWS costs based on current usage
+
+---
+
+
+AWS Pricing Calculator
+
+AWS Pricing Calculator – Simi to planning costs before buying hardware. You select EC2 size, storage, and data transfer, and AWS calculates the estimated monthly cost before deployment.
+
+Use cases:
+
+Estimate AWS costs before creating resources
+
+Compare different AWS service configurations to choose the cheapest option
+
+---
+
+Tip
+
+Pricing Calculator = Before build (estimate cost)
+
+Cost Explorer = After build (analyze spending)
+
+Budgets = While running (alerts & control)
+
+---
+
+
+# Module 12 - Migrating to the AWS Cloud
+
+---
+
+**Migration Phase**
 
 Assess Phase > Mobilize Phase > Migrate and Modernize
 
