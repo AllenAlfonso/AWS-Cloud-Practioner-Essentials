@@ -83,28 +83,38 @@ Retire - No longer being used
 
 
 ---
-Database Migration
 
-AWS Database Migration Service (DMS) - Migrate/move or replicate Onprem to AWS or AZURE/GCP to AWS with minimal downtime.
+ Database Migration
 
-AWS Schema Conversion Tool - Convert/transform database schemas and application/database code from one database engine to another (ex, MySQL to Amazon RDS, Oracle DB to Aurora).
+ AWS Database Migration Service (DMS) - Migrate/move or replicate Onprem to AWS or AZURE/GCP to AWS with minimal downtime.
 
-Transferring Data Online
----
-AWS DataSync - is Simi to OneDrive you can Move or SYNC From onprem to Cloud. also you can sched when the sync or move will be done.
----
-AWS Transfer Family - Simi to Shared Drive = EFS using a Protocol FTP Port 21
----
-Direct Connect - Move files from on prem to Cloud without using the internet/WIFI because Direct connect is like a lan cable connecting Onprem to Cloud. Instead of upload to cloud it just Moving Files from onprem to cloud.
----
-Transferring Data Offline 
----
-Snowballs - Simi to Portable HDD/SSD send a hardware copy to onprem then deliver the Portable Storage to Cloud and paste.
+ AWS Schema Conversion Tool - Convert/transform database schemas and application/database code from one database engine to another (ex, MySQL to Amazon RDS, Oracle DB to Aurora).
+ 
 ---
 
+ Transferring Data Online
+ 
+---
+ AWS DataSync - is Simi to OneDrive you can Move or SYNC From onprem to Cloud. also you can sched when the sync or move will be done.
+ 
+---
+ AWS Transfer Family - Simi to Shared Drive = EFS using a Protocol FTP Port 21
+ 
+---
+ Direct Connect - Move files from on prem to Cloud without using the internet/WIFI because Direct connect is like a lan cable connecting Onprem to Cloud. Instead of upload to cloud it just  Moving Files from onprem to cloud.
+ 
+---
+ Transferring Data Offline 
+ 
+---
+
+ Snowballs - Simi to Portable HDD/SSD send a hardware copy to onprem then deliver the Portable Storage to Cloud and paste.
+ 
+---
 
 
-**Module 13 - Well Architected Solutions**
+
+# Module 13 - Well Architected Solutions
 
 
 
