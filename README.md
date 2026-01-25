@@ -9,7 +9,7 @@ Amazon CloudWatch – Simi to Windows Task Manager + Event Viewer + Performance 
 CloudWatch is not just monitoring
 It also includes:
 
-Metrics – like performance counters (CPU, RAM, disk)
+Metrics – like performance counters (CPU, RAM, HDD/SSD)
 
 Logs – like Event Viewer logs from servers and apps
 
