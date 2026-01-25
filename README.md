@@ -1,5 +1,161 @@
 AWS Cloud Practioner Essentials
+
 ---
+# Module 9 - Security
+
+---
+
+Authentication = “Who are you?” | Authorization = “What are you allowed to do?”
+
+
+Logging into Windows with your username and password → Authentication
+Being able to read files in C:\Shared but not delete them → Authorization
+
+---
+Root User  → full access, mostly for account setup & billing
+
+Groups → Simi to “AD Security Groups” → manage permissions for multiple users at once
+
+IAM Users → Like “Windows accounts” → assigned to groups or roles to get permissions
+
+Roles → Like “temporary admin rights or service accounts” → usually vendor
+
+---
+AWS IAM Identity Center – Single Sign-On for AWS accounts and apps, giving users the right permissions automatically while logging in once. Simi to using AD logging in some applications.
+
+---
+AWS Secrets Manager – Secure vault for passwords, API keys, and credentials with automatic rotation and controlled access. Simi to a secure password vault like Nord Pass, but for AWS credentials, API keys, and other secrets.
+
+IF Parameters store is just like Notepad we use it to store info but if credentials we use Nord Pass Secrets Manager.
+
+---
+
+AWS Systems Manager – Central tool to manage, patch, configure, and securely access all your AWS servers and resources. Simi to my explaination on the time UD has an major update that Tech need to do it manually -.- .
+
+Example Scenario:
+
+You have 50 POS running Universal Desktop
+
+Use Systems Manager to:
+
+Patch all servers automatically every week
+
+Run a script across all instances to install an app updated Universal Desktop
+
+Check compliance of configurations (like firewall or antivirus settings)
+
+Access a server remotely without opening RDP or SSH → secure and logged
+
+---
+
+AWS Shield – AWS Shield – Cloud DDoS protection and network defense to keep your AWS apps online and safe from attacks.
+
+
+Shield Standard → automatic protection for all AWS customers (no extra cost)
+
+Shield Advanced → more sophisticated protection, real-time alerts, and 24/7 DDoS response team
+
+---
+
+AWS WAF – Web application firewall that protects your websites and apps from common attacks by filtering traffic before it reaches your servers.Simi to what Compliance do if they will block a Website that is suspicious
+
+Types of Threats / Traffic WAF Can Block:
+
+SQL Injection (SQLi)
+
+Malicious input trying to manipulate your database via web forms Example: username=' OR '1'='1' --
+
+Cross-Site Scripting (XSS)
+
+Injecting malicious scripts into web pages viewed by other users Example: <script>alert('hack')</script>
+
+Bad Bots / Crawlers
+
+Bots scraping your website or performing automated attacks
+
+IP Addresses
+
+Block traffic from specific malicious IPs or geolocations
+
+HTTP Headers & Request Patterns
+
+Block requests with unusual headers, long query strings, or suspicious patterns
+
+Rate-Based Rules
+
+Block too many requests from the same source → protects against DDoS-like floods
+
+Custom Rules
+
+You can define rules for anything specific to your app (e.g., block /admin page from public)
+
+---
+
+Data Encryption -Remember the example of briefcase with key that is being deliver and how public/private key works.
+
+At Rest = Locking data in a safe (disk/database/encrypted storage)
+
+In Transit = Sending data through a secure tunnel (HTTPS/VPN)
+--- 
+
+Amazon Macie – Automated tool that discovers, classifies, and protects sensitive data in AWS, helping prevent accidental exposure. Simi to Outlook rules that if have an Personal Inforamtion and it has been sent to external emails it will be automatically not delivered.
+
+
+AWS Certificate Manager (ACM) - ASIM
+
+---
+
+Amazon Inspector – Automated security scanner that checks AWS servers, containers, and functions for vulnerabilities and misconfigurations. 
+
+Scans EC2 instances, container images, and Lambda functions for vulnerabilities
+
+Detects security flaws, missing patches, and misconfigurations
+
+Provides detailed findings and recommendations to fix issues
+
+Helps meet security and compliance standards
+
+---
+
+Amazon GuardDuty – 24/7 threat detection service that monitors your AWS accounts and network for suspicious activity and alerts IT. SIMI to IT Compliance but 24/7 haha When user log in different country or visited an website that is phising.
+
+Continuously monitors AWS accounts, VPC flow logs, CloudTrail logs, and DNS logs
+
+Detects unusual behavior, compromised credentials, or malicious activity
+
+Sends alerts to IT or Security team for investigation
+
+Fully managed, no need to install agents
+
+---
+
+Amazon Detective – Cloud investigation tool that visualizes and analyzes security incidents to help IT understand what happened and why. SIMI to asking RCA to vendor.
+
+
+---
+
+AWS Security Hub – Central dashboard that collects security alerts from GuardDuty, Inspector, Macie, Config, IAM Access Analyzer, Firewall Manager, CloudTrail, and VPC Flow Logs.
+
+List of all AWS services that included in Security Hubb.
+
+Amazon GuardDuty – Detects suspicious activity and threats in your AWS accounts (like compromised IAM credentials, unusual API calls).
+
+Amazon Inspector – Finds vulnerabilities and misconfigurations in EC2, containers, and Lambda.
+
+Amazon Macie – Scans S3 buckets for sensitive data exposure (like personal info or credit cards).
+
+AWS Firewall Manager – Manages firewall rules and protections across multiple accounts.
+
+AWS IAM Access Analyzer – Detects resources shared outside your AWS account and potential overly permissive access.
+
+AWS Config – Tracks configuration changes and compliance status of AWS resources.
+
+AWS CloudTrail – Monitors API activity and helps track unusual actions.
+
+Amazon VPC Flow Logs – Monitors network traffic for suspicious activity.
+
+---
+
 # Module 10 - Monitoring, Compliance and Governance in the AWS Cloud
 
 ---
