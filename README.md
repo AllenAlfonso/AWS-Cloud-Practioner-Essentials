@@ -24,8 +24,60 @@ SQL Server
 
 RDS Read Replica - A copy of your primary database that stays in sync and handles read-only queries. Helps reduce load on the main database and improve performance since read replica is a different intance that would not affect the Utilization of your Main Database.
 
+---
+
+
+Amazon Aurora – High-performance cloud database, fully managed, compatible with MySQL and PostgreSQL. 
+
+
+| Feature                | **RDS Read Replica**                        | **Aurora Replica**                                                                              |
+| ---------------------- | ------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| **Purpose**            | Offload read traffic from main DB           | Offload read traffic **and** provide high availability                                          |
+| **Data Sync**          | Asynchronous (lag possible)                 | Synchronous or very fast asynchronous (almost no lag)                                           |
+| **Failover**           | Needs promotion to become writable manually | Can **automatically failover** and become writable in Aurora Multi-AZ                           |
+| **Write Capability**   | Read-only (until promoted)                  | Read-only by default, but Aurora can have **multiple read/write endpoints in Aurora Global DB** |
+| **Number of Replicas** | Max 5 for MySQL/PostgreSQL                  | Aurora MySQL: up to 15, Aurora PostgreSQL: up to 15                                             |
+| **Performance**        | Separate storage, replication can lag       | Shared storage, almost instant replication → very fast reads                                    |
+
+
+
 
 ---
+
+NOSQL - Flexible databases that don’t rely on tables and rows like traditional relational databases.
+
+
+DynamoDB – Fully managed NoSQL database that’s fast, scales automatically, and stores data in a flexible key-value or document format.
+
+Why use DynamoDB:
+
+Instant access → Reads & writes in milliseconds
+
+Auto-scaling → Handles sudden traffic spikes like Black Friday shopping
+
+Serverless → No need to patch, backup, or manage servers
+
+Flexible schema → Add new attributes anytime without breaking existing data
+
+Primary Key: Unique ID for each item → like a phone number in your contacts
+
+Global Tables: Multi-region → friends around the world can see your new post instantly
+
+DAX (In-memory cache): Speeds up reads → like having your contacts list in RAM instead of loading from storage
+
+---
+
+In Memory Cache - A place to store important data in memory (RAM) so your apps can grab it instantly, instead of going all the way to the database every time.
+
+Cache = RAM → lightning-fast shortcut
+Database = SSD/HDD → main storage room.
+
+
+Amazon ElastiCache → Stores data in RAM for super fast access.
+Amazon RDS / Aurora / DynamoDB → Stores data in persistent storage (SSD/HDD) for long-term use
+
+
+Amazon ElastiCache – Managed in-memory caching service using Redis or Memcached. Simi to giving your apps a super-fast RAM shortcut so they don’t have to go all the way to the database (SSD/HDD) every time. Helps apps respond in milliseconds instead of seconds.
 
 # Module 8 - AI/ML and Data Analytics
 
