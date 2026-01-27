@@ -1,6 +1,57 @@
 AWS Cloud Practioner Essentials
 
 ---
+# Module 7 - Databases
+
+---
+
+Amazon RDS is a fully managed relational database service that automates backups, patching, scaling, and high availability for traditional SQL databases. Simi to having a database server but AWS is the Database Administrator that will handle you dont need maintain as you have already a Database Admin that is AWS. 
+
+You will just focus on data and applications, not database maintenance.
+
+
+Databases supported by RDS
+
+MySQL
+
+PostgreSQL
+
+MariaDB
+
+Oracle
+
+SQL Server
+
+RDS Read Replica - A copy of your primary database that stays in sync and handles read-only queries. Helps reduce load on the main database and improve performance since read replica is a different intance that would not affect the Utilization of your Main Database.
+
+
+---
+
+# Module 8 - AI/ML and Data Analytics
+
+---
+
+
+AI is the brain.
+ML is how the brain learns. (ML is a subset of AI.)
+
+AI = Think & act smart
+ML = Learn from data
+
+
+AWS services sample
+
+Amazon Lex → AI chatbot
+
+Amazon Polly → AI voice
+
+Amazon GuardDuty → Uses ML to detect threats
+
+Amazon Macie → Uses ML to find sensitive data
+
+AWS services are AI-powered, but ML is what makes them smarter.
+
+---
 # Module 9 - Security
 
 ---
