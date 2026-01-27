@@ -79,6 +79,13 @@ Amazon RDS / Aurora / DynamoDB → Stores data in persistent storage (SSD/HDD) f
 
 Amazon ElastiCache – Managed in-memory caching service using Redis or Memcached. Simi to giving your apps a super-fast RAM shortcut so they don’t have to go all the way to the database (SSD/HDD) every time. Helps apps respond in milliseconds instead of seconds.
 
+---
+
+Amazon DocumentDB – Managed document database service that works with JSON data. Simi to MongoDB in the cloud, but AWS handles the servers, backups, and scaling for you.
+
+
+--- 
+
 # Module 8 - AI/ML and Data Analytics
 
 ---
