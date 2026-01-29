@@ -85,6 +85,29 @@ Amazon DocumentDB – Managed document database service that works with JSON dat
 
 
 --- 
+AWS Backup – Centralized backup service that automatically backs up your AWS resources and manages backup policies in one place.
+
+Simi to: an automatic backup system for servers and data, like setting scheduled backups for Windows OS in Laptor/desktop, but for EC2, RDS, DynamoDB, EFS, EBS, and more—all managed by AWS.
+
+What it does:
+
+Schedule automatic backups (daily, weekly, monthly)
+
+Central place to manage all backups
+
+Retention rules (how long backups are kept)
+
+Restore data easily when something breaks or gets deleted
+
+Helps with compliance and audits
+
+Example:
+Someone accidentally deletes an RDS database or an EC2 volume → AWS Backup lets IT restore it from last night’s backup in a few clicks.
+
+Remember
+AWS Backup = set it once, forget it, and recover when needed
+
+---
 
 # Module 8 - AI/ML and Data Analytics
 
