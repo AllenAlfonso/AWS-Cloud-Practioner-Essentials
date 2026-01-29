@@ -1,4 +1,28 @@
 AWS Cloud Practioner Essentials
+---
+
+# Module 5- Networking
+
+Virtual Private Network (VPC) is like your own private network in the AWS Cloud. You decide who can talk to what, which servers are public, and which stay private. It’s like building your office network but in the cloud.
+
+Remember
+
+Subnets – Divide your VPC into smaller networks.
+
+Public Subnet → Servers accessible from the internet (like web servers).
+
+Private Subnet → Servers only accessible internally (like databases).
+
+Internet Gateway – Connects your VPC to the internet.
+
+NAT Gateway – Lets private servers access the internet safely without exposing them.
+
+Route Tables – Like directions for your network traffic, deciding where data goes.
+
+Security Groups – Firewall rules for individual servers.
+
+Network ACLs – Firewall rules at the subnet level, more broad than security groups.
+
 
 ---
 # Module 6 - Storage
