@@ -1,6 +1,298 @@
 AWS Cloud Practioner Essentials
 
 ---
+# Module 6 - Storage
+
+---
+
+
+##  AWS Storage – Block vs Object vs File (How data is stored & updated)
+
+---
+
+##  Block Storage (Amazon EBS)
+
+Block storage stores data in **small fixed-size blocks**, like a real hard drive (SSD/HDD).
+
+**Key behavior:**
+
+* Data is split into blocks
+* When a file is modified, **only the changed block is updated**
+* The entire file is **NOT re-uploaded**
+
+### Example:
+
+* 5 MB database file
+* You update 1 KB
+* Only the **block with that 1 KB** is saved again
+
+ **Why it’s fast**
+
+* Uses SSD/HDD
+* Works like a local disk
+* Perfect for OS, databases, apps
+
+**SIMI:**
+Block Storage = **Editing a file on your laptop → only the changed part is saved**
+
+---
+
+##  Object Storage (Amazon S3)
+
+Object storage treats every file as **one whole object**.
+
+**Key behavior:**
+
+* No partial updates
+* Any change means **uploading a new object**
+* If versioning is ON → new version is created
+
+### Example:
+
+* 5 MB file in S3
+* Change 1 byte
+* S3 uploads **a new 5 MB object**
+
+ **Why AWS designed it this way**
+
+* Massive scale
+* Very high durability
+* Simple storage model
+
+**SIMI:**
+Object Storage = **Re-uploading a file to OneDrive or Google Drive after editing**
+
+---
+
+## File Storage (Amazon EFS)
+
+File storage is like **a shared network drive**, but cloud-based.
+
+**Key behavior:**
+
+* Uses block-level updates (like EBS)
+* Multiple EC2 instances can access the same files at once
+
+### Example:
+
+* Shared Excel file on a network drive
+* Edit one cell
+* Only the changed blocks are updated
+
+**SIMI:**
+File Storage = **Office shared folder / NAS**
+
+---
+
+##  Speed & Storage Type
+
+Think it like this:
+
+* **Cache / RAM** → nanoseconds to milliseconds (very fast)
+* **Block/File storage (SSD/HDD)** → milliseconds (fast)
+* **Object storage (S3)** → slower for updates, but extremely durable
+
+**Your logic is correct:**
+
+* Block/File = **disk-based (SSD/HDD)** → partial updates
+* Object = **whole object** → full re-upload
+
+---
+
+##  Remember
+
+Block & File storage update only the changed blocks.
+ Object storage replaces the entire file.**
+
+
+S3 Versioning vs EBS Snapshots
+
+S3 Versioning
+
+Stores entire new object
+
+Every change = full file stored
+
+Example:
+
+5 MB file
+
+Change 1 byte
+
+New 5 MB version stored
+
+EBS Snapshots
+
+Stores only changed blocks
+
+Example:
+
+100 GB disk
+
+Change 1 GB
+
+Snapshot stores 1 GB
+
+---
+
+## When to use what
+
+| Storage         | Use When                    |
+| --------------- | --------------------------- |
+| **EBS (Block)** | OS, databases, apps         |
+| **EFS (File)**  | Shared folders, app servers |
+| **S3 (Object)** | Backups, media, logs        |
+
+---
+
+AWS Storage Gateway is a hybrid storage service that connects your on-premises environment to AWS cloud storage.
+
+SIMI:
+Storage Gateway = Bridge or tunnel between on-prem storage and AWS (S3 / Glacier / EBS)
+Like having a local file server, but the data actually lives in AWS.
+
+ Why Storage Gateway Exists
+
+Some companies:
+
+Still have on-prem servers
+
+Can’t move everything to cloud yet
+
+Need backup, archiving, or cloud storage without changing apps
+
+Storage Gateway lets them use AWS storage without fully migrating.
+
+---
+
+
+Types of AWS Storage Gateway
+
+File Gateway
+
+What it does:
+
+Presents NFS / SMB shared folders on-prem
+
+Stores files in Amazon S3
+
+SIMI:
+File Gateway = Shared Drive (File Server)
+Users save files normally, but files are stored in S3.
+
+Use cases:
+
+File shares
+
+Home drives
+
+Department shared folders
+
+Lift-and-shift file servers
+
+ Volume Gateway
+ 
+A) Cached Volume
+
+What it does:
+
+Frequently used data → cached locally
+
+Full data → stored in AWS as EBS snapshots
+
+SIMI:
+Cached Volume = Small local SSD + huge cloud disk
+
+Use cases:
+
+Low on-prem storage
+
+Need fast access to recent data
+
+Backup to AWS
+
+B) Stored Volume
+
+What it does:
+
+Data stored locally first
+
+Backed up to AWS as snapshots
+
+SIMI:
+Stored Volume = Local disk with automatic cloud backup
+
+Use cases:
+
+On-prem apps that need low latency
+
+Disaster recovery
+
+Compliance backups
+
+---
+
+ Tape Gateway
+
+What it does:
+
+Replaces physical tape libraries
+
+Stores backups in S3 / Glacier
+
+SIMI:
+Tape Gateway = Virtual tape library in the cloud
+
+Use cases:
+
+Legacy backup software
+
+Long-term archiving
+
+Compliance (7–10 year retention)
+
+
+---
+
+
+Elastic Disaster Recovery (Elastic DR) - helps you replicate your servers to AWS so that if your main server has a disaster, you can recover quickly with minimal downtime.
+
+How it works
+
+Replication setup – You install Elastic DR on your source servers (on-prem or cloud).
+
+Small EC2 instances – AWS creates low-resource instances in the target region.
+
+These instances just sync the data, not run the full server.
+
+Only changed blocks of data are sent → efficient and fast.
+
+Continuous sync – Your primary server’s changes are replicated in near real-time.
+
+Failover / Recovery – If disaster happens:
+
+AWS spins up full-size EC2 instances with all the synced data.
+
+Your applications are back online quickly.
+
+Key Points
+
+Small EC2 instances always run in the background → just handle replication.
+
+They are not full production servers → save cost and resources.
+
+Only during disaster, AWS launches full production-sized servers.
+
+---
+
+Remember
+
+small instances handle the sync, and full-size servers only get created during recovery.
+
+These small instances are NOT production servers.
+
+They store replicated data so that when disaster hits, AWS can launch a full-sized EC2 with all your latest data.
+---
 # Module 7 - Databases
 
 ---
@@ -137,6 +429,7 @@ RDS = tables
 DynamoDB = key-value
 DocumentDB = JSON documents
 Neptune = relationships
+
 ---
 
 # Module 8 - AI/ML and Data Analytics
