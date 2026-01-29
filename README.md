@@ -109,6 +109,36 @@ AWS Backup = set it once, forget it, and recover when needed
 
 ---
 
+Amazon Neptune – Managed graph database service used to store and analyze relationships between data.
+
+Simi to: a mind map or relationship chart, where the focus is not just the data, but how things are connected.
+
+What it’s good at:
+
+Finding relationships fast (who is connected to who)
+
+Querying complex connections in milliseconds
+
+Fully managed (AWS handles patching, backups, scaling)
+
+Example use cases:
+
+Social networks → friends, followers, mutual connections
+
+Fraud detection → detect unusual relationship patterns between users, devices, and transactions
+
+Recommendation engines → “people who bought this also bought that”
+
+Network & dependency mapping → system-to-system relationships
+
+Remember
+
+RDS = tables
+DynamoDB = key-value
+DocumentDB = JSON documents
+Neptune = relationships
+---
+
 # Module 8 - AI/ML and Data Analytics
 
 ---
