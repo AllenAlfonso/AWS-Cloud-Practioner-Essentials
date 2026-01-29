@@ -25,6 +25,192 @@ Network ACLs – Firewall rules at the subnet level, more broad than security gr
 
 
 ---
+
+Virtual Private Gateway (VGW)
+
+A Virtual Private Gateway is the AWS-side VPN router that connects your on-premises network to your AWS VPC using a secure tunnel.
+
+Simi to: your office VPN gateway that lets employees securely access internal systems from outside.
+
+Remember 
+
+Virtual Private Gateway = AWS VPN door into your VPC
+
+---
+
+# AWS Client VPN
+
+**AWS Client VPN** lets **individual users (laptops)** securely connect to AWS from **anywhere**.
+
+**Simi to:**
+ **Company VPN** you use at home to access office systems.
+
+---
+
+### What it does
+
+* Users install a **VPN client** on their laptop
+* Connect securely to AWS
+* Access **VPC resources** (EC2, RDS, internal apps)
+
+---
+
+### When to use
+
+* Work from home / remote users
+* IT admins accessing AWS privately
+* No office network required
+
+---
+
+### Example
+
+You’re at home
+ Connect using VPN client
+ You can access internal EC2 / internal web apps
+ Same feeling as connecting to office VPN
+
+---
+
+Remember
+
+> **Client VPN = user-to-AWS secure access**
+
+---
+
+# AWS Site-to-Site VPN
+
+**AWS Site-to-Site VPN** connects **your entire office network** to AWS.
+
+**Simi to:**
+ **Office network connected to another branch office**
+
+---
+
+### What it does
+
+* Creates a **permanent encrypted tunnel**
+* Between **on-prem router/firewall** and AWS VPC
+* All office users can access AWS resources
+
+---
+
+### When to use
+
+* Hybrid setup (on-prem + AWS)
+* Multiple users need AWS access
+* No need for individual VPN logins
+
+---
+
+### Example
+
+Office PCs
+ Office firewall
+ VPN tunnel
+ AWS VPC
+ Access EC2 / RDS using private IP
+
+---
+
+Remember
+
+> **Site-to-Site VPN = office network ↔ AWS**
+
+---
+
+# AWS PrivateLink
+
+**AWS PrivateLink** allows private access to AWS services **without using the internet**.
+
+**Simi to:**
+ Accessing an internal system using a **private LAN IP**, not public URL.
+
+---
+
+### What it does
+
+* Connects VPCs or AWS services **privately**
+* Traffic stays **inside AWS network**
+* No public IPs, no NAT, no internet
+
+---
+
+### When to use
+
+* Secure service-to-service communication
+* Exposing apps to other VPCs safely
+* Compliance-heavy environments
+
+---
+
+### Example
+
+VPC A (your app)
+ PrivateLink
+ VPC B (database or service)
+ No internet exposure
+
+---
+
+Remember
+
+> **PrivateLink = private service access inside AWS**
+
+---
+
+# AWS Direct Connect
+
+**AWS Direct Connect** is a **dedicated physical connection** from your data center to AWS.
+
+**Simi to:**
+ Plugging a **LAN cable directly from office to AWS**
+
+---
+
+### What it does
+
+* Bypasses the public internet
+* More **stable, faster, predictable**
+* Used for **large data transfer**
+
+---
+
+### When to use
+
+* Large enterprises
+* High bandwidth workloads
+* Low latency & stable connection required
+
+---
+
+### Example
+
+On-prem data center
+ Dedicated fiber line
+ AWS
+ Faster than VPN
+ No internet traffic
+
+---
+
+
+> **Direct Connect = private fiber cable to AWS**
+
+
+
+Remember
+
+* **Client VPN** → user to AWS
+* **Site-to-Site VPN** → office to AWS
+* **PrivateLink** → private AWS service access
+* **Direct Connect** → physical private line to AWS
+
+
+
+
+---
+
 # Module 6 - Storage
 
 ---
