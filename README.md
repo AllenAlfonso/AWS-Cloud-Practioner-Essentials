@@ -3,25 +3,203 @@ AWS Cloud Practioner Essentials
 
 # Module 5- Networking
 
-Virtual Private Network (VPC) is like your own private network in the AWS Cloud. You decide who can talk to what, which servers are public, and which stay private. It’s like building your office network but in the cloud.
+Virtual Private Network (VPC) is like your own private network in the AWS Cloud. You decide who can talk to what, which servers are public, and which stay private. Simi to building your office network but in the cloud.
+
+
+---
+
+# Subnets
+
+**Subnets** divide your **VPC** into smaller network sections.
+
+**Simi to:**
+ Dividing one big office floor into **different rooms** (HR room, Server room, Finance room).
+
+You usually create:
+
+* **Public Subnet**
+* **Private Subnet**
+
+---
+
+## Public Subnet
+
+**Public Subnet** → Servers that **can be accessed from the internet**.
+
+**Simi to:**
+ Reception area of the office where **visitors are allowed**
+
+### Common resources here:
+
+* Web servers (EC2)
+* Load Balancers
+* Bastion / Jump servers
+
+### Example
+
+User opens a website
+ Internet
+ Load Balancer in Public Subnet
+ Web Server
+
+ Has **Internet Gateway route**
+
+---
+
+## Private Subnet
+
+**Private Subnet** → Servers **not accessible directly from the internet**.
+
+**Simi to:**
+ Server room locked inside the office (only staff allowed)
+
+### Common resources here:
+
+* Databases (RDS)
+* Backend servers
+* Internal services
+
+### Example
+
+Web server needs database access
+ Web server (public subnet)
+ Database (private subnet)
+ Internet users cannot access DB directly
+
+---
+
+# Internet Gateway (IGW)
+
+**Internet Gateway** connects your **VPC to the internet**.
+
+**Simi to:**
+ Main office door to the outside world
+
+### Key points
+
+* Required for **public subnet**
+* Allows inbound & outbound internet traffic
+* One IGW per VPC
+
+### Example
+
+Without Internet Gateway
+ Your website is **offline**
+
+---
+
+# NAT Gateway
+
+**NAT Gateway** allows **private subnet servers to access the internet**, but **blocks inbound access**.
+
+**Simi to:**
+ Asking the receptionist to download something for you, but visitors still can’t enter the server room
+
+### Why needed?
+
+* Private servers need updates (OS patches)
+* Database needs to download updates
+* App server needs external API access
+
+### Example
+
+Private EC2
+ NAT Gateway
+ Internet
+ Can download updates
+ Internet cannot connect back
+
+---
+
+# Route Tables
+
+**Route Tables** control **where network traffic goes**.
+
+**Simi to:**
+ Google Maps directions for your network
+
+### Examples
+
+* `0.0.0.0/0 → Internet Gateway` → Public Subnet
+* `0.0.0.0/0 → NAT Gateway` → Private Subnet
+
+If route is wrong →  no internet,  no access
+
+---
+
+# Security Groups
+
+**Security Groups** are **firewalls for individual resources** (EC2, RDS, etc.).
+
+**Simi to:**
+ Personal door lock per room
+
+### Key points
+
+* Works at **instance level**
+* **Allow rules only**
+* Stateful (return traffic is automatically allowed)
+
+### Example
+
+Web EC2 Security Group:
+
+* Allow HTTP (80) from internet
+* Allow SSH only from IT IP
+
+---
+
+# Network ACLs (NACLs)
+
+**Network ACLs** are **firewalls at the subnet level**.
+
+**Simi to:**
+ Building security guard checking everyone entering or exiting
+
+### Key points
+
+* Works at **subnet level**
+* **Allow and Deny rules**
+* Stateless (need inbound & outbound rules)
+
+### Example
+
+Block traffic from a malicious IP across entire subnet
+
+---
+
+#  Security Group vs NACL 
+
+| Feature  | Security Group | Network ACL    |
+| -------- | -------------- | -------------- |
+| Level    | Instance       | Subnet         |
+| Rules    | Allow only     | Allow + Deny   |
+| Stateful | Yes            | No             |
+| SIMI     | Door lock      | Building guard |
+
+---
+
+# Quick Real-Life Flow Example
+
+User opens website
+➡️ Internet Gateway
+➡️ Load Balancer (Public Subnet)
+➡️ Web EC2 (Security Group allows HTTP)
+➡️ Database (Private Subnet)
+➡️ Database replies internally
+➡️ User gets response
+
+---
 
 Remember
 
-Subnets – Divide your VPC into smaller networks.
-
-Public Subnet → Servers accessible from the internet (like web servers).
-
-Private Subnet → Servers only accessible internally (like databases).
-
-Internet Gateway – Connects your VPC to the internet.
-
-NAT Gateway – Lets private servers access the internet safely without exposing them.
-
-Route Tables – Like directions for your network traffic, deciding where data goes.
-
-Security Groups – Firewall rules for individual servers.
-
-Network ACLs – Firewall rules at the subnet level, more broad than security groups.
+* **Public Subnet** → internet-facing
+* **Private Subnet** → internal only
+* **IGW** → VPC internet door
+* **NAT** → safe internet access for private servers
+* **Route Table** → traffic directions
+* **Security Group** → server firewall
+* **NACL** → subnet firewall
 
 
 ---
@@ -207,9 +385,258 @@ Remember
 * **Direct Connect** → physical private line to AWS
 
 
+---
+
+
+# Amazon Route 53
+
+**Amazon Route 53** is AWS’s **DNS service** that directs users to the **correct AWS resource** (website, app, server) using a domain name.
+
+**Simi to:**
+ **Google Maps for the internet** — when someone types an address, Route 53 tells them where to go.
+
+---
+
+## What it does 
+
+* Converts **domain names → IP addresses**
+* Sends users to the **nearest or healthiest server**
+* Keeps websites **highly available**
+* Registers and manages domain names
+
+---
+
+## Why the name “Route 53”?
+
+* **Route** → routing traffic
+* **53** → DNS port number (53)
+
+---
+
+
+###  DNS (Domain Name System)
+
+Turns:
+
+```
+www.mycompany.com
+```
+
+into:
+
+```
+54.23.10.5
+```
+
+**Simi to:**
+ Contact name in phone → actual phone number
+
+---
+
+###  Domain Registration
+
+You can **buy and manage domains** directly in AWS.
+
+**Example**
+
+* buy `mycompany.com`
+* manage DNS in Route 53
+
+---
+
+###  Health Checks
+
+Route 53 checks if your server is **up or down**.
+
+**Simi to:**
+ IT pinging a server to see if it’s alive
+
+**Example**
+
+* If EC2 in Singapore is down
+   Route 53 automatically sends traffic to Tokyo
+
+---
+
+###  Traffic Routing Policies
+
+Route 53 decides **where traffic goes** based on rules.
+
+#### Common routing types:
+
+* **Simple Routing** – one server
+* **Weighted Routing** – split traffic (50/50)
+* **Latency-based Routing** – send users to nearest region
+* **Failover Routing** – auto switch when server is down
+* **Geolocation Routing** – based on country
+
+**Simi to:**
+ Call center routing calls to the nearest or available agent
+
+---
+
+## Real-Life Example
+
+You have:
+
+* Website in **Singapore**
+* Backup website in **Tokyo**
+
+User opens `www.shop.com`
+
+Route 53:
+
+* Checks which server is **healthy**
+* Sends user to the **nearest / working server**
+
+User never notices downtime 
+
+---
+
+## Where Route 53 is used
+
+* Websites hosted on EC2
+* Load Balancers
+* S3 static websites
+* Multi-region applications
+* Disaster Recovery setups
+
+---
+
+## Security & Reliability
+
+* Highly available (global service)
+* Integrated with:
+
+  * **ELB**
+  * **CloudFront**
+  * **Health checks**
+* No single point of failure
+
+---
+
+Remember
+
+> **Amazon Route 53 = DNS + traffic controller + health checker for your AWS apps**
 
 
 ---
+
+# Amazon CloudFront
+
+**Amazon CloudFront** is AWS’s **Content Delivery Network (CDN)** that **caches and delivers content faster** by serving it from locations closer to users.
+
+**Simi to:**
+ **Netflix buffering solution** — instead of fetching the video from the main server every time, it plays from the nearest cache.
+
+---
+
+## What problem CloudFront solves
+
+Without CloudFront:
+
+* User in PH requests website
+* Server is in US
+* Long distance = slow load 
+
+With CloudFront:
+
+* Content is cached in a **nearby edge location**
+* Faster load, lower latency 
+
+---
+
+## How it works
+
+1. User opens your website
+2. CloudFront checks **nearest Edge Location**
+3. If content is cached → served immediately
+4. If not cached → CloudFront fetches from **origin**
+5. Content is cached for next users
+
+---
+
+## What is an “Origin”?
+
+**Origin** = where CloudFront gets the original content
+
+Common origins:
+
+* S3 bucket (static website)
+* Application Load Balancer
+* EC2
+* API Gateway
+
+**Simi to:**
+ Main warehouse (origin) → local branches (edge locations)
+
+---
+
+## What CloudFront can cache
+
+* Images
+* Videos
+* HTML / CSS / JS
+* API responses
+* Downloads (PDFs, installers)
+
+---
+
+## Security features
+
+CloudFront also helps with **security**, not just speed:
+
+* HTTPS / SSL encryption
+* Integrates with **AWS WAF**
+* Protects against DDoS (via AWS Shield)
+* Blocks bad IPs at the edge (before reaching servers)
+
+**Simi to:**
+ Security guard at the mall entrance instead of inside the shop
+
+---
+
+## Cost optimization bonus 
+
+* Reduces load on your EC2 / backend
+* Less data transfer from origin
+* Cheaper than serving all traffic from one region
+
+---
+
+## Real-Life Example
+
+Company website hosted in **Singapore**
+
+Users from:
+
+* Philippines
+* Japan
+* Australia
+
+Without CloudFront:
+
+* Everyone hits Singapore server
+
+With CloudFront:
+
+* PH users → Manila edge
+* JP users → Tokyo edge
+* AU users → Sydney edge
+
+Result:
+✔ Faster website
+✔ Lower server load
+✔ Better user experience
+
+---
+
+Remember
+
+> **Amazon CloudFront = global cache that makes your website fast, secure, and closer to users**
+
+---
+
 
 # Module 6 - Storage
 
