@@ -179,7 +179,7 @@ Block traffic from a malicious IP across entire subnet
 
 ---
 
-# Quick Real-Life Flow Example
+# Real-Life Flow Example
 
 User opens website
 ➡️ Internet Gateway
@@ -1439,16 +1439,21 @@ AWS Application Migration Service - Migrates applications from on-premises or cl
 ---
 AWS CAF - Plan, Migrate, and Optimize - Help Organization why and how move to AWS Cloud
 
-Business Capabilities
+**Business Capabilities**
 
  Business 
+ 
  People
+ 
  Governance
+ 
 
-Technical Capabilities
+**Technical Capabilities**
 
 Platform
+
 Security
+
 Operations
 
 ---
@@ -1456,11 +1461,17 @@ Operations
 Well-Architected Framework ( WAF) - Help design secure, reliable,high-performing, cost-efficient workloads. (QUALITY)
 
 Operational Excellence
+
 Security
+
 Reliability
+
 Perfomance Efficiency
+
 Cost Optimization
+
 Sustainability
+
 
 
 ---
