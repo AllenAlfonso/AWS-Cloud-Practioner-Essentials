@@ -1492,19 +1492,29 @@ If it mentions architecture, performance, reliability = Well-Architected
 ---
 The 7's R
 
-Rehost - Lift and Shift - Move as is (onprem Servers to VMs ) Might due to more scalability elasticity.
+Rehost (Lift and Shift)
+Move applications as-is from on-premises servers to cloud VMs, with minimal or no changes.
+Often chosen for speed and basic scalability/elasticity.
 
-Relocate - Already VMs or Container from on Prem changing to Cloud.
+Relocate
+Move existing virtual machines or containers from on-premises to the cloud without changing the architecture (e.g., VMware workloads moved to cloud VMware services).
 
-Replatform - Lift, Thinker and Shift - Upgrade to more efficient but same Code ex. mysql DB to RDS | Aurora.
+Replatform (Lift, Tinker, and Shift)
+Make small optimizations to take advantage of cloud services without changing the core application code.
+Example: migrating MySQL on-prem to Amazon RDS or Aurora.
 
-Refactor - Rearchitecting - ex Onprem to Cloud due to not possible or lack of featues or resources. 
+Refactor (Re-architect)
+Redesign and rewrite the application to be cloud-native.
+Chosen when on-prem limitations, lack of features, scalability needs, or long-term optimization justify the effort.
 
-Repurchase - Drop and Shop - Considering better offers benefits.
+Repurchase (Drop and Shop)
+Replace the existing application with a SaaS or managed solution that offers better features, cost, or efficiency.
 
-Retain - Stays where it lays
+Retain
+Keep the application on-premises (or as-is) due to compliance, latency, cost, or strategic reasons.
 
-Retire - No longer being used
+Retire
+Decommission applications that are no longer used or provide business value.
 
 
 ---
