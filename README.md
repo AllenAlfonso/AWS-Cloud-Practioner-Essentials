@@ -120,8 +120,8 @@ Private EC2
 
 ### Examples
 
-* `0.0.0.0/0 → Internet Gateway` → Public Subnet
-* `0.0.0.0/0 → NAT Gateway` → Private Subnet
+* `0.0.0.0/0 → Internet Gateway` → Public Subnet - Enables outbound internet access for instances in a public subnet.
+* `0.0.0.0/0 → NAT Gateway` → Private Subnet - Allows instances in a private subnet to access the internet without being directly reachable from the internet.
 
 If route is wrong →  no internet,  no access
 
