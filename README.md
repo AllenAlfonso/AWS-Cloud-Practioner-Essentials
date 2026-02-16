@@ -1,6 +1,551 @@
 AWS Cloud Practioner Essentials
 ---
 
+# Module 3 - Exploring Compute Services
+
+---
+
+
+# AWS Responsibility Model 
+
+AWS services are grouped based on **how much work AWS does vs how much you manage**.
+
+👉 **More managed = less work for you**
+👉 **Less managed = more control but more responsibility**
+
+---
+
+# Three Types of AWS Services
+
+## **1️⃣ Unmanaged Services – You Manage Almost Everything**
+
+AWS manages:
+
+* Data centers
+* Physical servers
+* Networking
+
+You manage:
+
+* OS installation
+* Security patching
+* Software setup
+* Monitoring
+* Scaling
+* Application management
+
+**Think SIMI:**
+Bare metal / empty apartment → **You build everything inside**
+
+### 🔹 Unmanaged AWS Services
+
+* Amazon EC2
+* Amazon EC2 Auto Scaling
+* Amazon EBS
+* Amazon VPC
+* Elastic Load Balancer (ELB – classic setup)
+
+---
+
+## 2️⃣ Managed Services – Shared Responsibility
+
+AWS manages:
+
+* Infrastructure
+* OS patching (mostly)
+* Scaling
+* High availability
+* Backups
+
+You manage:
+
+* Application
+* Configuration
+* Security policies
+* Users & permissions
+
+Think SIMI:
+Fully furnished apartment → **Less setup, less headache**
+
+### 🔹 Managed AWS Services
+
+* Amazon RDS
+* Amazon Aurora
+* Amazon ECS
+* Amazon EKS
+* AWS Elastic Beanstalk
+* Amazon EMR
+* Amazon Redshift
+* Amazon OpenSearch
+* Amazon MQ
+
+---
+
+## 3️⃣ Fully-Managed / Serverless – AWS Handles Almost Everything
+
+AWS manages:
+
+* Servers
+* Scaling
+* High availability
+* Maintenance
+* OS
+* Infrastructure
+
+You manage:
+
+* Code
+* Data
+* Permissions
+
+**Think SIMI:**
+Hotel stay → **Just use the service, no maintenance**
+
+### 🔹 Fully-Managed / Serverless AWS Services
+
+* AWS Lambda
+* Amazon DynamoDB
+* Amazon S3
+* Amazon CloudFront
+* Amazon API Gateway
+* AWS Step Functions
+* Amazon SNS
+* Amazon SQS
+* AWS Fargate
+* Amazon EventBridge
+
+---
+
+# Responsibility Comparison Table
+
+| Type              | AWS Handles           | You Handle                     | Effort    |
+| ----------------- | --------------------- | ------------------------------ | --------- |
+| **Unmanaged**     | Hardware only         | OS + Security + Apps + Scaling | 🔴 High   |
+| **Managed**       | Infra + OS + Scaling  | Config + App + Security        | 🟡 Medium |
+| **Fully Managed** | Everything infra-side | Only code + access             | 🟢 Low    |
+
+---
+
+Remember
+
+> EC2 = You build
+>
+> 
+> RDS = AWS helps
+>
+> 
+> Lambda = AWS does almost everything
+
+---
+
+# Real-Life Example
+
+### Running a Website:
+
+EC2 (Unmanaged)
+→ You install OS → web server → patches → updates → backups
+
+RDS (Managed)
+→ AWS manages database engine, patching, backup
+
+Lambda (Fully-managed)
+→ You upload code → AWS runs it → auto scales → auto recovers
+
+---
+
+# Responsibility Diagram 
+
+```
+Unmanaged     →     Managed      →     Fully Managed
+More Work     →     Balanced      →     Very Less Work
+EC2           →     RDS           →     Lambda
+```
+
+---
+
+# Exam Tip 
+
+If AWS exam asks:
+
+> Which service reduces operational overhead the most?
+
+✅ **Answer: Fully-managed / Serverless services (like Lambda, DynamoDB)**
+
+---
+
+
+
+# AWS Lambda – Serverless Compute 
+
+AWS Lambda is a **serverless compute service** that lets you run code **without creating or managing servers**. You just upload your code, set the trigger, and AWS will automatically handle **infrastructure, scaling, availability, and execution**.
+
+You **only pay when your code runs**, billed per millisecond.
+
+Simi:
+Lambda is like **a smart automatic worker** — you give it a task, it runs it, and disappears when done. No servers to manage.
+
+---
+
+# How Lambda Works 
+
+Event happens → Lambda triggers → Code runs → Task completed → Lambda stops → You only pay for execution time
+
+**Triggers examples:**
+
+* API Gateway (web requests)
+* S3 upload
+* DynamoDB update
+* EventBridge (scheduled jobs)
+* SNS / SQS messages
+
+---
+
+# How Long Can Lambda Run?
+
+Maximum execution time: 15 minutes (900 seconds)
+
+
+
+Lambda is designed for **short-running workloads**, not long-running tasks.
+
+**Think SIMI:**
+
+Lambda = **Microwave** → Fast jobs
+EC2 / ECS = **Slow cooker** → Long jobs
+
+---
+
+# Lambda Execution Limits 
+
+| Feature           | Limit           |
+| ----------------- | --------------- |
+| Max runtime       | **15 minutes**  |
+| Min runtime       | Milliseconds    |
+| Auto scaling      | Yes             |
+| Server management | None            |
+| Billing           | Per millisecond |
+
+---
+
+# **When Lambda is Perfect**
+
+Use Lambda when tasks are:
+
+* Short
+* Event-driven
+* On-demand
+* Auto-scaling required
+
+**Examples:**
+
+* Image resizing after upload
+* Login authentication logic
+* API backend logic
+* File processing
+* Email notifications
+* Automation scripts
+
+---
+
+# **When Lambda is NOT Ideal**
+
+Avoid Lambda if:
+
+* Task runs **more than 15 minutes**
+* Heavy processing workloads
+* Long batch processing
+* Video rendering
+* Big data workloads
+
+Use instead:
+
+* EC2
+* ECS / EKS
+* AWS Batch
+* Step Functions + ECS
+
+---
+
+# Real-Life Example
+
+### **Scenario: Image Upload System**
+
+User uploads image → Lambda resizes image → Saves thumbnail → Done
+
+Perfect use case ✔
+
+---
+
+### Scenario: Video Rendering (30 mins)
+
+❌ Lambda → Timeout
+✅ EC2 / AWS Batch → Correct choice
+
+---
+
+# Enterprise Design Tip 
+
+If a process is long:
+
+Use **Lambda + Step Functions**
+→ Break big job into **small tasks**
+
+---
+
+# One-Liner 
+
+> AWS Lambda is a serverless compute service for short, event-driven workloads with a maximum execution time of 15 minutes.
+
+---
+
+
+# Key Takeaways – Solving Deployment Challenges 
+
+Containers are a smart way to package applications** together with all their needed files, libraries, and settings into **one portable unit**. This makes applications **secure, reliable, easy to move, and easy to scale
+
+Simi:
+Containers are like **packing your entire working PC setup into one folder**, so wherever you run it — laptop, server, or cloud — it behaves exactly the same.
+
+---
+
+# Containers vs Virtual Machines (VMs)
+
+### Containers
+
+* Lightweight
+* Fast startup (seconds)
+* Share the same OS
+* Use fewer resources
+* Easier to move and scale
+
+Simi:
+Containers = Portable apps inside one folder
+
+---
+
+### Virtual Machines (VMs)
+
+* Heavy
+* Slower startup (minutes)
+* Each VM runs a **full OS**
+* Higher resource usage
+* More complex to manage
+
+**Simi:**
+VMs = Full PC inside a PC
+
+---
+
+### Simple Comparison
+
+| Containers    | Virtual Machines |
+| ------------- | ---------------- |
+| Lightweight   | Heavy            |
+| Fast startup  | Slow startup     |
+| Share OS      | Separate OS      |
+| Lower cost    | Higher cost      |
+| Easy to scale | Harder to scale  |
+
+---
+
+# Why Containers Fix Deployment Problems
+
+### **Problem Before Containers**
+
+* App works in **Developer PC**
+* Fails in **Test / Production**
+* Different OS, libraries, or versions
+* Hard to troubleshoot
+
+---
+
+### Solution with Containers
+
+* Same environment everywhere
+* No more **"It works on my PC" problem**
+* Faster deployment
+* Easier troubleshooting
+
+Simi:
+Containers make Dev → Test → Prod environments identical
+
+---
+
+# Scaling Containers – Why Orchestration Is Needed
+
+When applications grow, you might have:
+
+* 10 containers → 100 → 1000 containers
+
+Managing them manually becomes very hard.
+
+This is where **orchestration tools** come in.
+
+They automatically handle:
+
+* Deployment
+* Scaling
+* Load balancing
+* Restarting failed containers
+* Monitoring
+
+Simi:
+Orchestration tools = Traffic enforcer + auto manager for containers
+
+---
+
+# AWS Container Services 
+
+AWS container tools fall into **3 main categories:**
+
+1. **Orchestration** → ECS, EKS
+2. **Registry (Image Storage)** → ECR
+3. **Compute (Where containers run)** → EC2, Fargate
+
+---
+
+# **Amazon ECS – Elastic Container Service**
+
+AWS-native container orchestration service.
+
+Used to **run and manage Docker containers easily.**
+
+---
+
+### ECS Launch Types
+
+### 1. ECS + EC2
+
+* You manage EC2 servers
+* Full control over OS and hardware
+* More configuration
+* More responsibility
+
+Best for:
+Companies needing **custom setups or special hardware**
+
+Simi:
+Like owning your own servers
+
+---
+
+### 2. ECS + Fargate (Serverless)
+
+* No server management
+* AWS handles infrastructure
+* Auto scaling
+* Pay only for usage
+
+Best for:
+Startups, web apps, unpredictable workloads
+
+Simi:
+Like **renting a fully managed server automatically**
+
+---
+
+# Amazon EKS – Elastic Kubernetes Service
+
+Fully managed **Kubernetes service on AWS**.
+
+Used when you want **open-source Kubernetes power** with AWS infrastructure.
+
+---
+
+### EKS Launch Types
+
+### 1. EKS + EC2
+
+* Full infrastructure control
+* Deep customization
+* Best for complex enterprise workloads
+
+Simi:
+Like **custom-built datacenter with Kubernetes**
+
+---
+
+### 2. EKS + Fargate
+
+* Kubernetes + serverless
+* No server management
+* Fast scaling
+* Lower ops overhead
+
+Simi:
+Like Kubernetes without server headaches
+
+---
+
+# Amazon ECR – Elastic Container Registry
+
+Where you store your container images.
+
+Simi:
+Amazon ECR = **Docker Hub but inside AWS**
+
+Used to:
+
+* Push images
+* Pull images
+* Store versions
+* Manage access
+
+---
+
+# AWS Fargate – Serverless Compute for Containers
+
+Fargate is where containers actually run.
+
+You do NOT:
+
+* Create servers
+* Patch OS
+* Manage instances
+
+You only:
+
+* Deploy containers
+* Pay for CPU + RAM used
+
+Works with:
+
+* ECS
+* EKS
+
+Simi:
+Fargate = Lambda for Containers
+
+---
+
+# Simple Architecture View
+
+ECR → stores images
+ECS / EKS → manages containers
+Fargate → runs containers (serverless compute)
+
+---
+
+# Quick Exam Summary (High Value)
+
+| Service | Purpose                            |
+| ------- | ---------------------------------- |
+| ECS     | AWS-native container orchestration |
+| EKS     | Kubernetes orchestration           |
+| ECR     | Container image registry           |
+| Fargate | Serverless container compute       |
+
+---
+
+# One-Liner Summary
+
+> Containers provide fast, consistent, portable deployments, while ECS, EKS, ECR, and Fargate allow AWS to run, manage, store, and scale containers easily without server management.
+
+
+
+
+---
+
 
 # Module 4- Going Global
 
