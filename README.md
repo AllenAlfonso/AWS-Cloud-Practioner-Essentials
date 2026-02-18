@@ -312,7 +312,7 @@ Marketplace AMI = **Pre-installed enterprise software servers**
 
 ---
 
-# **Why AMIs Are Important – Repeatability**
+# Why AMIs Are Important 
 
 AMIs make deployment **fast, consistent, and error-free**.
 
@@ -340,6 +340,268 @@ AMI is a **server blueprint** that helps you **deploy identical EC2 servers quic
 
 
 
+# AWS EC2 Pricing Options 
+
+AWS gives you **multiple pricing models** so you can **match cost with your workload pattern**. Choosing the right option helps **reduce cloud cost and avoid wasting money**.
+
+Pricing options = **Choose how you want to pay for servers**
+
+---
+
+# **Main EC2 Pricing Types**
+
+---
+
+### **1. On-Demand Instances – Pay As You Go**
+
+* No long-term commitment
+* Pay only when the instance is running
+* Highest flexibility, highest price
+
+**Good for:**
+
+* Testing
+* Short-term workloads
+* Unpredictable traffic
+
+On-Demand = **Rent per hour → stop anytime**
+
+---
+
+### **2. Reserved Instances (RI) – Long-Term Discount**
+
+* Commit for **1 or 3 years**
+* Get **up to 75% discount**
+* Best for **steady workloads**
+
+**Good for:**
+
+* Databases
+* Production systems
+* Always-on servers
+
+RI = **Prepay → big discount**
+
+---
+
+### **3. Spot Instances – Cheapest but Unstable**
+
+* Use **unused AWS capacity**
+* Up to **90% cheaper**
+* Can be **terminated anytime**
+
+**Good for:**
+
+* Batch jobs
+* CI/CD pipelines
+* Big data processing
+* Non-critical workloads
+
+Spot = **Cheap but can disappear anytime**
+
+---
+
+### **4. Savings Plans – Flexible Long-Term Discount**
+
+* Commit to **hourly compute usage**
+* Works across:
+
+  * EC2
+  * Fargate
+  * Lambda
+  * SageMaker
+* Up to **72% discount**
+
+**Good for:**
+
+* Predictable workloads
+* Mixed compute environments
+
+Savings Plan = **Commit to usage, not instance type**
+
+---
+
+### **5. Dedicated Hosts – Full Physical Server**
+
+* You get **entire physical server**
+* Full control over placement
+* Required for **compliance & licensing**
+
+**Good for:**
+
+* Regulated industries
+* BYOL (Bring Your Own License)
+* Strict compliance needs
+
+Dedicated Host = **Entire server only for you**
+
+---
+
+### **6. Dedicated Instances – Isolated but No Server Control**
+
+* Physically isolated from others
+* No control which server you run on
+
+**Good for:**
+
+* Compliance needing isolation but not full control
+
+**Simi:**
+Dedicated Instance = **Private room inside shared building**
+
+---
+
+# **Dedicated Host vs Dedicated Instance **
+
+| Feature         | Dedicated Host | Dedicated Instance |
+| --------------- | -------------- | ------------------ |
+| Physical Server | 100% yours     | Shared             |
+| Server Control  | Full control   | No control         |
+| Isolation       | Yes            | Yes                |
+| Cost            | Higher         | Lower              |
+
+Dedicated Host = **Own house**
+
+
+Dedicated Instance = **Private apartment**
+
+---
+
+# **Advanced Cost Optimization Options**
+
+---
+
+### **Savings Plans**
+
+**Good for:** Predictable workloads
+
+* Commit to **hourly compute spend**
+* Flexible across services
+* Big long-term discounts
+
+
+Savings Plan = **Monthly subscription discount**
+
+---
+
+### **Capacity Reservations**
+
+**Good for:** Mission-critical workloads
+
+* Reserve capacity in a **specific AZ**
+* Ensures servers are **always available**
+* Charged even if unused
+
+Capacity Reservation = **Seat reservation in airplane**
+
+---
+
+### **Reserved Instance Flexibility**
+
+**Good for:** Stable workloads
+
+* Discount applies **across instance sizes & AZs**
+* More flexibility than fixed-size RIs
+
+RI Flexibility = **Same family → automatic discount sharing**
+
+---
+
+# **Simple Cost Strategy **
+
+| Workload               | Best Option                      |
+| ---------------------- | -------------------------------- |
+| Testing / short term   | On-Demand                        |
+| Steady production      | Reserved Instance / Savings Plan |
+| Batch / big data       | Spot                             |
+| Compliance / licensing | Dedicated Host                   |
+| Mission critical       | Capacity Reservation             |
+
+---
+
+
+AWS pricing options let you **balance flexibility, stability, and cost**, helping you **pay less while meeting performance and business needs**.
+
+---
+
+
+# **AWS EC2 Pricing – Discount & Savings Comparison **
+
+| Pricing Model                       | Max Discount  | Commitment   | Most Savings When                       |                                  |
+| ----------------------------------- | ------------- | ------------ | --------------------------------------- | -------------------------------- |
+| **On-Demand**                       | **0%**        | None         | Short-term, testing                     | Pay as you go                    |
+| **Spot Instances**                  | **Up to 90%** | None         | Flexible, interruptible jobs            | Cheapest but unstable            |
+| **Standard Reserved Instance (RI)** | **Up to 75%** | 1 or 3 years | Fixed workload, long-running servers    | Prepay → biggest stable discount |
+| **Convertible Reserved Instance**   | **Up to 54%** | 1 or 3 years | When flexibility is needed              | Change instance types later      |
+| **Savings Plans – Compute**         | **Up to 72%** | 1 or 3 years | Mixed workloads, EC2 + Lambda + Fargate | Most flexible long-term          |
+| **Savings Plans – EC2 Instance**    | **Up to 72%** | 1 or 3 years | Same instance family                    | Flexible but EC2-only            |
+| **Dedicated Instances**             | ~0–10%        | None         | Isolation required                      | Private VM                       |
+| **Dedicated Hosts**                 | ~0–10%        | None         | Compliance + licenses                   | Full physical server             |
+
+---
+
+# **Standard Reserved vs Savings Plans – Which Saves More?**
+
+| Scenario                               | Best Choice                    | Why                            |
+| -------------------------------------- | ------------------------------ | ------------------------------ |
+| Fixed EC2 type, always running         | **Standard Reserved Instance** | **Highest EC2 discount (75%)** |
+| Mixed EC2 sizes & regions              | **Savings Plans**              | More flexible                  |
+| EC2 + Lambda + Fargate                 | **Compute Savings Plan**       | Cross-service discount         |
+| Need to change instance families later | **Convertible RI**             | More flexibility               |
+| Unpredictable workloads                | **On-Demand / Spot**           | No commitment                  |
+
+---
+
+# **Who Saves You More?**
+
+👉 **Maximum stable discount:** **Standard RI (75%)**
+
+
+👉 **Most flexible discount:** **Savings Plans (72%)**
+
+
+👉 **Absolute cheapest:** **Spot (90%)**
+
+---
+
+Remember
+
+> **Spot = 90% → RI = 75% → Savings Plans = 72% → On-Demand = 0%**
+
+---
+
+# Real-Life Example
+
+Company has **24/7 database server running all year**
+➡ Best choice = **Standard Reserved Instance** → **Save 75%**
+
+Company runs **EC2 + Lambda + containers + mixed workloads**
+➡ Best choice = **Compute Savings Plan** → **Save 72% with flexibility**
+
+Company runs **batch jobs overnight only**
+➡ Best choice = **Spot Instances** → **Save 90%**
+
+---
+
+# **Final Exam Tip**
+
+If the question says:
+
+* **Predictable / steady workload → RI or Savings Plan**
+
+  
+* **Cheapest possible → Spot**
+
+  
+* **No commitment → On-Demand**
+
+  
+* **Compliance / license → Dedicated Host**
+
+
+
+
+---
 
 # Module 3 - Exploring Compute Services
 
